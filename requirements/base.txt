@@ -1,0 +1,5 @@
+django-crispy-forms==1.6.1
+django<=1.12
+psycopg2==2.7.1
+python-dateutil==2.6.0
+

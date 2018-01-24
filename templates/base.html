@@ -1,0 +1,100 @@
+<!doctype html>
+<html>
+<head lang="es">
+  <meta charset="utf-8">
+  <title>Adjudicación docente 2018</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+  {% block styles %}
+  {% endblock %}
+  <style>
+    .page-header {
+      padding: 10px;
+      width: 100%;
+      margin: 0 0 10px 0;
+      background-color: #3071a9;
+      color: white;
+      text-align: center;
+    }
+
+    .page-footer {
+      background: #3a3a41;
+      margin-top: 50px;
+      clear: both;
+      overflow: hidden;
+      text-align: center;
+      padding: 25px 0 23px;
+      color: #84898f;
+      border-top: 1px solid #000;
+      bottom: 0;
+      position: absolute;
+      width: 100%;
+    }
+
+    #footmenu {
+      color: #b7b9bc;
+      margin-bottom: 7px;
+      font-size: 95%;
+    }
+
+    a {
+      display: inline-block;
+      color: #b7b9bc;
+      padding: 0 9px 0 5px;
+      line-height: 1;
+      border-right: 1px solid #b7b9bc;
+      text-decoration: none;
+    }
+
+    #footmenu a:last-child {
+      border-right: none;
+    }
+
+    a:hover {
+      color: #2e76db;
+    }
+
+  </style>
+</head>
+<body>
+<header>
+  <div class="container page-header">
+    <div class="row">
+      <div class="col-xs-12 col-md-12 col-lg-12 text-center">
+        <h1>Adjudicación docente 2018</h1>
+        <h3>Busque su centro educativo</h3>
+      </div>
+    </div>
+  </div>
+</header>
+<div class="container-fluid ">
+  <div class="row ">
+    <div class="col-sm-12 " style="margin-top: 75px;">
+      {% if messages %}
+      {% for message in messages %}
+      <div class="alert {% if message.tags %}alert-{{ message.tags }}{% endif %}">{{ message|safe }}</div>
+      {% endfor %}
+      {% endif %}
+
+      {% block content %}{% endblock %}
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="page-footer">
+    <p id="footmenu">
+      <a href="https://www.facebook.com/qoilabs" target="_blank">Facebook</a>
+      <a href="https://twitter.com/qoilabs" target="_blank">Twitter</a>
+      <a href="mailto:info@qoilabs.com">Contáctanos</a>
+    </p>
+    <p>© Qoilabs. All Rights Reserved.</p>
+  </div>
+</footer>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script type="text/javascript" src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0//js/bootstrap.js"></script>
+{% block scripts %}
+{% endblock %}
+
+</body>
+</html>

@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% load staticfiles %}
+{% load static %}
+{% block content %}
+  <div class="row">
+    <div class="col-lg-10">
+      <form action="" method="get" class="form-inline">
+        <div class="input-group col-lg-4">
+          <input type="text" class="form-control" name="q"
+                 placeholder="Buscar por código modular o de colegio" id="buscar">
+        </div>
+        <button class="btn btn-default btn-lg" style="margin-left: 5px" type="submit" id="btn-buscar">
+          Buscar</button>
+      </form>
+    </div>
+  </div>
+  {% if colegios %}
+    <div class="row" style="margin-top: 5px" >
+      <div class="col-lg-12">
+        <div class="panel panel-default">
+          <table class="table table-bordered table-striped">
+            <thead>
+            <tr>
+              <th>Cod. Modular</th>
+              <th>Cod. Colegio</th>
+              <th>Nombre</th>
+              <th>Departamento</th>
+              <th>Provincia</th>
+              <th>Distrito</th>
+              <th>Dirección</th>
+              <th>Área</th>
+              <th>Ugel</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for colegio in colegios %}
+              <tr>
+                <td>{{ colegio.codigo_modular|default_if_none:'' }}</td>
+                <td>{{ colegio.codigo_colegio|default_if_none:''  }}</td>
+                <td>{{ colegio.nombre|default_if_none:'' }}</td>
+                <td>{{ colegio.departamento }}</td>
+                <td>{{ colegio.provincia }}</td>
+                <td>{{ colegio.distrito}}</td>
+                <td>{{ colegio.direccion }}</td>
+                <td>{{ colegio.area }}</td>
+                <td>{{ colegio.ugel_nombre|default_if_none:'' }}</td>
+              </tr>
+            {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  {% endif %}
+{% endblock %}
+
+{% block scripts %}
+
+{% endblock %}

@@ -14,9 +14,9 @@ class ColegioListView(ListView):
         q = self.request.GET.get('q')
         if q:
             qs = Colegio.objects.filter(Q(codigo_modular=q) | Q(codigo_colegio=q))
+            if not qs:
+                messages.warning(self.request, 'No se encontraron coincidencias')
         else:
             qs = Colegio.objects.none()
             messages.warning(self.request, 'Ingrese el código a buscar')
-        if not qs:
-            messages.warning(self.request, 'No se encontraron coincidencias')
         return qs

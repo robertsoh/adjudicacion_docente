@@ -12,5 +12,5 @@ Instalación
 - Cargar data:
 
 ```
-    python manage.py loaddata adjudicacion_docente/colegios/fixtures/colegios.json
+    python manage.py loaddata loaddata apps/colegios/fixtures/colegios.json
 ```
